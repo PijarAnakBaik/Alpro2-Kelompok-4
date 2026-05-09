@@ -186,3 +186,50 @@ def pinjam_ruang():
         jam_selesai,
         nama_peminjam
     )
+
+    # ==========================================
+    # FITUR LIHAT JADWAL
+    # ==========================================
+
+    def lihat_semua_jadwal():
+        print("===== DAFTAR PEMINJAMAN =====")
+    
+        for ruang, data in jadwal_ruang.items():
+
+            if data:
+                print(f"\nRuang: {ruang}")
+
+                for hari, jam_data in data.items():
+                    for jam, peminjam in jam_data.items():
+
+                        waktu = jam_kuliah[jam]
+
+                        print(f"  - {hari.capitalize()} ({waktu}): {peminjam}")
+
+
+    def lihat_jadwal_per_ruang():
+        print("===== CEK JADWAL PER RUANG =====")
+
+        nama = input("Masukkan Nama Ruang (contoh: Ruang 101): ")
+
+        if nama in jadwal_ruang:
+
+            data = jadwal_ruang[nama]
+
+            if data:
+                print(f"\nJadwal {nama}:")
+
+                for hari, jam_data in data.items():
+                    for jam, peminjam in jam_data.items():
+
+                        print(f"  - {hari.capitalize()} ({jam_kuliah[jam]}): {peminjam}")
+
+            else:
+                print("Ruang ini masih kosong!")
+
+        else:
+            print("Nama ruang salah atau tidak ada.")
+
+
+
+
