@@ -262,6 +262,128 @@ def lihat_jadwal_per_ruang():
         input("\nTekan Enter untuk cek ruang lain...")
 
 # =========================
+# FITUR HAPUS PEMINJAMAN
+# =========================
+def hapus_peminjaman():
+    print("===== HAPUS PEMINJAMAN =====")
+
+    # Tampilkan daftar ruang
+    print("\nDaftar Ruang:")
+    for ruang in jadwal_ruang.keys():
+        print(f"- {ruang}")
+
+    # =========================
+    # INPUT NAMA RUANG
+    # =========================
+    while True:
+        nama_ruang = input("\nMasukkan nama ruang: ").strip()
+
+        if nama_ruang in jadwal_ruang:
+            break
+        else:
+            print("Nama ruang tidak tersedia.")
+
+    # =========================
+    # TAMPILKAN DATA PEMINJAMAN
+    # =========================
+    data_ruang = jadwal_ruang[nama_ruang]
+
+    if data_ruang:
+        print(f"\nData peminjaman di {nama_ruang}:")
+
+        for hari, jam_data in data_ruang.items():
+            for jam, value in jam_data.items():
+
+                waktu = jam_kuliah[jam]
+                nama = value["nama"]
+                keperluan = value["keperluan"]
+
+                print(f"- {hari.capitalize()} ({waktu}) : {nama} - {keperluan}")
+
+    else:
+        print("\nBelum ada peminjaman pada ruang ini.")
+        return
+
+    # =========================
+    # INPUT HARI
+    # =========================
+    print("\nDaftar Hari:")
+    for i, hari in enumerate(hari_kampus, start=1):
+        print(f"{i}. {hari.capitalize()}")
+
+    while True:
+        try:
+            pilih_hari = int(input("\nPilih nomor hari: "))
+
+            if 1 <= pilih_hari <= len(hari_kampus):
+                hari = hari_kampus[pilih_hari - 1]
+                break
+            else:
+                print("Pilihan hari tidak tersedia.")
+        except ValueError:
+            print("Input harus berupa angka.")
+
+    # =========================
+    # TAMPILKAN JAM
+    # =========================
+    print("\nJam Perkuliahan:")
+    for kode, jam in jam_kuliah.items():
+        print(f"{kode}. {jam}")
+
+    # =========================
+    # INPUT JAM MULAI
+    # =========================
+    while True:
+        try:
+            jam_mulai = int(input("\nMasukkan jam mulai yang ingin dihapus: "))
+
+            if jam_mulai in jam_kuliah:
+                break
+            else:
+                print("Jam mulai tidak valid.")
+        except ValueError:
+            print("Input harus berupa angka.")
+
+    # =========================
+    # INPUT JAM SELESAI
+    # =========================
+    while True:
+        try:
+            jam_selesai = int(input("Masukkan jam selesai yang ingin dihapus: "))
+
+            if jam_selesai in jam_kuliah:
+                if jam_selesai >= jam_mulai:
+                    break
+                else:
+                    print("Jam selesai tidak boleh sebelum jam mulai.")
+            else:
+                print("Jam selesai tidak valid.")
+        except ValueError:
+            print("Input harus berupa angka.")
+
+    # =========================
+    # PROSES HAPUS
+    # =========================
+    data_ditemukan = False
+
+    if hari in jadwal_ruang[nama_ruang]:
+
+        for jam in range(jam_mulai, jam_selesai + 1):
+
+            if jam in jadwal_ruang[nama_ruang][hari]:
+                del jadwal_ruang[nama_ruang][hari][jam]
+                data_ditemukan = True
+
+        # Hapus hari jika kosong
+        if not jadwal_ruang[nama_ruang][hari]:
+            del jadwal_ruang[nama_ruang][hari]
+
+    if data_ditemukan:
+        print("\nPeminjaman berhasil dihapus.")
+    else:
+        print("\nData peminjaman tidak ditemukan.")
+
+# =========================
 # MENU UTAMA
 # =========================
 def menu_utama():
@@ -270,9 +392,9 @@ def menu_utama():
         print("1. Pinjam Ruang")
         print("2. Lihat Semua Jadwal")
         print("3. Lihat Jadwal Per Ruang")
-        print("4. Keluar")
-        
-        pilihan = input("\nPilih menu (1-4): ").strip()
+        print("4. Hapus Peminjaman")
+        print("5. Keluar")
+        pilihan = input("\nPilih menu (1-5): ").strip()
         
         if pilihan == "1":
             clear_screen()
@@ -287,10 +409,14 @@ def menu_utama():
             lihat_jadwal_per_ruang()
             clear_screen()
         elif pilihan == "4":
+            clear_screen()
+            hapus_peminjaman()
+            kembali_ke_menu()
+        elif pilihan == "5":
             print("\nTerima kasih telah menggunakan SIRUANG!")
             break
         else:
-            print("\nPilihan tidak valid! Silakan pilih 1-4.")
+            print("\nPilihan tidak valid! Silakan pilih 1-5.")
             input("Tekan Enter untuk melanjutkan...")
             clear_screen()
 
