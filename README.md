@@ -1,24 +1,56 @@
-# SIRUANG - Sistem Informasi Peminjaman Ruang Kampus
+# SIRUANG
+## Sistem Informasi Peminjaman Ruang Kampus
 
-## Deskripsi Proyek
-SIRUANG adalah proyek tugas kelompok Algoritma Pemrograman II yang bertujuan untuk membangun sistem sederhana dalam pengelolaan peminjaman ruang kampus secara terstruktur dan efisien. Program ini dirancang untuk membantu pengguna dalam melihat jadwal ruang, mengecek ketersediaan, serta melakukan peminjaman ruang berdasarkan hari dan slot waktu tertentu.
+SIRUANG adalah program berbasis Python yang dibuat untuk membantu proses pengelolaan peminjaman ruang kampus secara sederhana, terstruktur, dan efisien melalui Command Line Interface (CLI).
 
-Proyek ini menggunakan bahasa Python dengan penerapan konsep dasar algoritma seperti:
-- Percabangan
-- Perulangan
-- Fungsi 
-- Validasi input
+Program ini dikembangkan sebagai tugas kelompok mata kuliah Algoritma Pemrograman II dengan menerapkan berbagai konsep dasar pemrograman dan logika algoritma.
 
-## Fitur Utama
-- Melihat seluruh jadwal peminjaman ruang
+---
+
+# Deskripsi Proyek
+
+Sistem ini memungkinkan pengguna untuk:
+- Melihat jadwal peminjaman ruang
+- Mengecek ketersediaan ruang
+- Melakukan peminjaman ruang
+- Menghapus data peminjaman
+- Mengelola jadwal berdasarkan hari dan jam perkuliahan
+
+Program menggunakan struktur data dictionary untuk menyimpan data jadwal ruang secara dinamis.
+
+---
+
+# Fitur Utama
+
+- Melihat seluruh jadwal peminjaman
 - Melihat jadwal ruang tertentu
 - Mengecek ketersediaan ruang
 - Melakukan peminjaman ruang
+- Menghapus data peminjaman
 - Validasi input pengguna
 - Sistem jadwal berdasarkan hari dan jam
+- Tampilan terminal interaktif
 
-## Struktur Sistem
-Program mengelola beberapa ruang kampus seperti:
+---
+
+# Konsep Pemrograman yang Digunakan
+
+Program ini mengimplementasikan beberapa konsep dasar Algoritma Pemrograman II, seperti:
+
+- Variabel dan tipe data
+- Percabangan (`if`, `elif`, `else`)
+- Perulangan (`for`, `while`)
+- Fungsi (`function`)
+- Dictionary dan nested dictionary
+- Validasi input
+- Modular programming
+
+---
+
+# Struktur Sistem
+
+## Daftar Ruang Kampus
+
 - Ruang 101
 - Ruang 102
 - Ruang 103
@@ -29,14 +61,20 @@ Program mengelola beberapa ruang kampus seperti:
 - Ruang Rapat
 - Aula Seminar
 
-Dengan jadwal operasional:
+---
+
+# Hari Operasional
+
 - Senin
 - Selasa
 - Rabu
 - Kamis
 - Jumat
 
-### Jam Perkuliahan:
+---
+
+# Jam Perkuliahan
+
 | Jam Ke | Waktu |
 |--------|--------|
 | 1 | 07:30 |
@@ -52,7 +90,11 @@ Dengan jadwal operasional:
 | 11 | 16:20 |
 | 12 | 17:10 |
 
-Sistem memungkinkan peminjaman berdasarkan:
+---
+
+# Sistem Peminjaman
+
+Peminjaman ruang dilakukan berdasarkan:
 - Hari
 - Jam mulai
 - Jam selesai
@@ -60,33 +102,67 @@ Sistem memungkinkan peminjaman berdasarkan:
 ### Contoh:
 - Senin | Jam 1 - Jam 3
 - Rabu | Jam 7 - Jam 9
-- dst.
 
-## Tujuan Pengembangan
-- Mengimplementasikan materi Algoritma Pemrograman II
-- Melatih kolaborasi kerja kelompok
-- Mengembangkan logika pemrograman berbasis studi kasus nyata
-- Menciptakan solusi sederhana untuk manajemen ruang kampus
+Sistem akan otomatis:
+- Mengecek bentrok jadwal
+- Menolak peminjaman jika ruang sedang digunakan
 
-## Teknologi yang Digunakan
-- Bahasa Pemrograman Python
+---
+
+# Fitur Hapus Peminjaman
+
+Sistem menyediakan fitur penghapusan data peminjaman berdasarkan:
+- Nama ruang
+- Hari
+- Rentang jam
+
+Pengguna juga dapat melihat data peminjaman terlebih dahulu sebelum menghapus jadwal.
+
+---
+
+# Teknologi yang Digunakan
+
+- Python
 - Visual Studio Code
 - Command Line Interface (CLI)
-- Github
+- Git & Github
 
-## Pengembangan Selanjutnya
-Sistem ini dapat dikembangkan menjadi:
-- GUI Desktop App
-- Web App
+---
+
+# Tujuan Pengembangan
+
+- Mengimplementasikan materi Algoritma Pemrograman II
+- Melatih logika pemrograman
+- Mengembangkan studi kasus sistem informasi sederhana
+- Melatih kerja sama tim dalam pengembangan program
+
+---
+
+# Pengembangan Selanjutnya
+
+Sistem ini masih dapat dikembangkan menjadi:
+
+- GUI Desktop Application
+- Web Application
 - Database Integration
 - Login Multi-user System
-- Sistem reservasi online kampus
+- Sistem Reservasi Online Kampus
+- Penyimpanan data otomatis (JSON/Database)
+
+---
+
+# Tim Pengembang
+
+Proyek SIRUANG dikembangkan oleh kelompok mahasiswa sebagai tugas mata kuliah Algoritma Pemrograman II.
 
 ## Anggota Kelompok
-- Much. Mentari Adriansyah
-- Muhammad Abdurrahman
-- Hafidzar Ashyawal Sinatryas
-- Wafah Khonia
+
+| No | Nama |
+|----|------|
+| 1 | Much. Mentari Adriansyah |
+| 2 | Muhammad Abdurrahman |
+| 3 | Hafidzar Ashyawal Sinatryas |
+| 4 | Wafah Khonia |
 
 ## Catatan
 Repository ini dibuat sebagai tugas akademik sekaligus referensi pengembangan sistem informasi sederhana berbasis Python.
