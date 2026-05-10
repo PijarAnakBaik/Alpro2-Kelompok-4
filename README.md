@@ -1,5 +1,4 @@
-# SIRUANG
-## Sistem Informasi Peminjaman Ruang Kampus
+# SIRUANG - Sistem Informasi Peminjaman Ruang Kampus
 
 SIRUANG adalah program berbasis Python yang dibuat untuk membantu proses pengelolaan peminjaman ruang kampus secara sederhana, terstruktur, dan efisien melalui Command Line Interface (CLI).
 
