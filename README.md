@@ -43,7 +43,6 @@ Program ini mengimplementasikan beberapa konsep dasar Algoritma Pemrograman II, 
 - Fungsi (`function`)
 - Dictionary dan nested dictionary
 - Validasi input
-- Modular programming
 
 ---
 
